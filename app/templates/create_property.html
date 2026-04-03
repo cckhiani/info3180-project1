@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container mt-5 pt-3">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1>Add New Property</h1>
+            <form method="POST" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                
+                <div class="mb-3">
+                    {{ form.title.label(class="form-label") }}
+                    {% if form.title.errors %}
+                        {{ form.title(class="form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.title.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.title(class="form-control") }}
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.description.label(class="form-label") }}
+                    {% if form.description.errors %}
+                        {{ form.description(class="form-control is-invalid", rows="4") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.description.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.description(class="form-control", rows="4") }}
+                    {% endif %}
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        {{ form.bedrooms.label(class="form-label") }}
+                        {% if form.bedrooms.errors %}
+                            {{ form.bedrooms(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.bedrooms.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.bedrooms(class="form-control") }}
+                        {% endif %}
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        {{ form.bathrooms.label(class="form-label") }}
+                        {% if form.bathrooms.errors %}
+                            {{ form.bathrooms(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.bathrooms.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.bathrooms(class="form-control") }}
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    {{ form.location.label(class="form-label") }}
+                    {% if form.location.errors %}
+                        {{ form.location(class="form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.location.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.location(class="form-control") }}
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.price.label(class="form-label") }}
+                    {% if form.price.errors %}
+                        {{ form.price(class="form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.price.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.price(class="form-control") }}
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.property_type.label(class="form-label") }}
+                    {% if form.property_type.errors %}
+                        {{ form.property_type(class="form-select is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.property_type.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.property_type(class="form-select") }}
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.photo.label(class="form-label") }}
+                    {% if form.photo.errors %}
+                        {{ form.photo(class="form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.photo.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.photo(class="form-control") }}
+                    {% endif %}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
